@@ -36,18 +36,21 @@ __REPORT_URLS__ = {
     REPORT_SUCCESS: "https://report.zmirror.org/onekey/log/success",
 }
 
+infoprint("chinese检查是否是linux系统:",sys.platform)
 if sys.platform != 'linux':
     errprint('This program can ONLY be used in debian-like Linux (debian, ubuntu and some others)')
     exit(1)
+infoprint("chinese:检查是否是root权限执行:",os.geteuid)
 if os.geteuid() != 0:
     errprint('Root privilege is required for this program. Please use `sudo python3 deploy.py`')
     exit(2)
-
+infoprint("chinese:检查python版本",sys.version)
 if sys.version_info < (3, 4):
     errprint("zmirror requires at least Python 3.4,\n"
              "however, your Python version is \n", sys.version)
     exit(7)
 
+infoprint("chinese:程序参数赋值",sys.argv)
 DEBUG = '--debug' in sys.argv
 already_have_cert = '--i-have-cert' in sys.argv
 upgrade_only = "--upgrade-only" in sys.argv
@@ -278,8 +281,9 @@ def dump_settings(dump_file_path=DUMP_FILE_PATH):
 
 
 try:
+    infoprint("chinese环境变量配置")
     cmd('export LC_ALL=C.UTF-8')  # 设置bash环境为utf-8
-
+    infoprint("chinese安装python3")
     cmd('apt-get -y -q update && apt-get -y -q install python3 python3-pip')
 
     # for some old version Linux, pip has bugs, causing:
@@ -288,6 +292,7 @@ try:
     cmd('easy_install3 -U pip')
 
     # 安装本脚本必须的python包
+    infoprint("chinese安装python包")
     cmd('python3 -m pip install -U setuptools')
     cmd('python3 -m pip install requests==2.11.0')
     cmd('python3 -m pip install -U distro')
@@ -808,7 +813,9 @@ try:
         print()
         infoprint("zmirror can provide simple verification via password\n"
                   "    just as you may have seen in zmirror's demo sites (however, demo sites does not require correct answer)")
-        need_answer_question = input("Do you want to protect your mirror by password? (y/N): ")
+        #need_answer_question = input("Do you want to protect your mirror by password? (y/N): ")
+        need_answer_question = "y"
+        
         if need_answer_question in ("y", "yes", "Yes", "YES"):
             need_answer_question = True
             print()
@@ -824,17 +831,20 @@ try:
                 "    please see the ##Human/IP verification## section of `config_default.py`\n"
             )
             while True:
-                name = input("Please input the question: ")
+                #name = input("Please input the question: ")
+                name = "long long ago"
                 if not name:
                     errprint("    question should not be blank")
                     sleep(0.3)
                     continue
-                answer = input("Please input the answer (act as password): ")
+                #answer = input("Please input the answer (act as password): ")
+                answer = "nopassword"
                 if not answer:
                     errprint("    answer should not be blank")
                     sleep(0.3)
                     continue
-                hint = input("Please input the hint (optional, press [ENTER] to skip): ")
+                #hint = input("Please input the hint (optional, press [ENTER] to skip): ")
+                hint = "nothing"
                 question = {"name": name, "answer": answer, "hint": hint}
                 break
         else:
