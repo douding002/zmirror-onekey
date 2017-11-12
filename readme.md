@@ -1,3 +1,7 @@
+# 更新
+- deploy.py line506 不更新系统的软件包  
+(ubuntu16.04下更新有可能会导致证书获取失败)
+
 # [zmirror](https://github.com/aploium/zmirror) 一键部署脚本
 
 使用[zmirror](https://github.com/aploium/zmirror)快速部署镜像的脚本  
