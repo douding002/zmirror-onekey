@@ -1,6 +1,9 @@
 # 更新
-- deploy.py line506 不更新系统的软件包  
-(ubuntu16.04下更新有可能会导致证书获取失败)
+- deploy.py line506 不更新系统的软件包 (该条应该可以不更改)
+ 
+- 修复locale语言环境配置问题（部分ubuntu16.04下更新证书会失败）
+sudo /usr/share/locales/install-language-pack en_US.UTF-8  
+sudo apt-get install language-pack-zh-hant-base language-pack-zh-hans-base  
 
 # [zmirror](https://github.com/aploium/zmirror) 一键部署脚本
 
