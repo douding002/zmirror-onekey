@@ -1,5 +1,7 @@
 # 更新
 - deploy.py line506 不更新系统的软件包 (该条应该可以不更改)
+- 胡乱添加一些中文注释
+- 预先设定问题和答案
  
 - 修复locale语言环境配置问题（部分ubuntu16.04下更新证书会失败）  
 sudo /usr/share/locales/install-language-pack en_US.UTF-8  
