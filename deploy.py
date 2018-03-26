@@ -159,10 +159,10 @@ def onekey_report(report_type=REPORT_SUCCESS, traceback_str=None, msg=None):
     dbgprint(__REPORT_URLS__[report_type], data)
 	
 	# 将发送到远程服务器的报告写入到本地
-	jsObj = json.dumps(data)  
+	jsObj = json.dumps(data)
     f1 = open("temp.log",'w',encoding='utf-8')
     f1.write(jsObj)
-    f1.close()	
+    f1.close()
 
 	#屏蔽掉 发送报告到服务器	
     #try:
