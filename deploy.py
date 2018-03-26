@@ -23,12 +23,17 @@ except:
     warnprint = print
     importantprint = print
 
+# 该版本仅供个人学习调试用，代码质量较差
+# 请进入源出处（Aploium的github）学习参考
+
 __AUTHOR__ = 'Aploium <i@z.codes>'
 __VERSION__ = '0.12.1'
-__ZMIRROR_PROJECT_URL__ = 'https://github.com/aploium/zmirror/'
-__ZMIRROR_GIT_URL__ = 'https://github.com/aploium/zmirror.git'
-__ONKEY_PROJECT_URL__ = 'https://github.com/aploium/zmirror-onekey/'
-__ONKEY_PROJECT_URL_CONTENT__ = 'https://raw.githubusercontent.com/aploium/zmirror-onekey/master/'
+__ZMIRROR_PROJECT_URL__ = 'https://github.com/douding002/zmirror/'
+# 切换为本地拉取的git
+__ZMIRROR_GIT_URL__ = 'https://github.com/douding002/zmirror.git'
+__ONKEY_PROJECT_URL__ = 'https://github.com/douding002/zmirror-onekey/'
+# 切换为本地拉取的apache2 conf文件
+__ONKEY_PROJECT_URL_CONTENT__ = 'https://raw.githubusercontent.com/douding002/zmirror-onekey/master/'
 REPORT_SUCCESS = "success"
 REPORT_ERROR = "error"
 __REPORT_URLS__ = {
@@ -152,26 +157,33 @@ def onekey_report(report_type=REPORT_SUCCESS, traceback_str=None, msg=None):
         data['memory'] = 1
 
     dbgprint(__REPORT_URLS__[report_type], data)
+	
+	# 将发送到远程服务器的报告写入到本地
+	jsObj = json.dumps(data)  
+    f1 = open("temp.log",'w',encoding='utf-8')
+    f1.write(jsObj)
+    f1.close()	
 
-    try:
-        r = requests.post(__REPORT_URLS__[report_type], data=data)
-    except:
-        if DEBUG:
-            traceback.print_exc()
-        try:
-            r = requests.post(
-                __REPORT_URLS__[report_type],
-                data={
-                    "traceback": str(data)
-                                 + "\n-----Except during request-----\n"
-                                 + traceback.format_exc()
-                },
-                verify=False, )
-        except:
-            raise
-    else:
-        dbgprint(r.text, r.headers, r.request.body)
-
+	#屏蔽掉 发送报告到服务器	
+    #try:
+    #   r = requests.post(__REPORT_URLS__[report_type], data=data)
+    #except:
+    #    if DEBUG:
+    #       traceback.print_exc()
+    #    try:
+    #        r = requests.post(
+    #            __REPORT_URLS__[report_type],
+    #            data={
+    #                "traceback": str(data)
+    #                             + "\n-----Except during request-----\n"
+    #                             + traceback.format_exc()
+    #            },
+    #            verify=False, )
+    #    except:
+    #        raise
+    #else:
+    #    dbgprint(r.text, r.headers, r.request.body)
+    #
 
 class StdLogger:
     def __init__(self, mode="stdout"):
