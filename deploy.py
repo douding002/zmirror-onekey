@@ -28,12 +28,10 @@ except:
 
 __AUTHOR__ = 'Aploium <i@z.codes>'
 __VERSION__ = '0.12.1'
-__ZMIRROR_PROJECT_URL__ = 'https://github.com/aploium/zmirror/'
-# 切换为本地拉取的git
-__ZMIRROR_GIT_URL__ = 'https://github.com/aploium/zmirror.git'
-__ONKEY_PROJECT_URL__ = 'https://github.com/aploium/zmirror-onekey/'
-# 切换为本地拉取的apache2 conf文件
-__ONKEY_PROJECT_URL_CONTENT__ = 'https://raw.githubusercontent.com/aploium/zmirror-onekey/master/'
+__ZMIRROR_PROJECT_URL__ = 'https://github.com/douding002/zmirror/'
+__ZMIRROR_GIT_URL__ = 'https://github.com/douding002/zmirror.git'
+__ONKEY_PROJECT_URL__ = 'https://github.com/douding002/zmirror-onekey/'
+__ONKEY_PROJECT_URL_CONTENT__ = 'https://raw.githubusercontent.com/douding002/zmirror-onekey/master/'
 REPORT_SUCCESS = "success"
 REPORT_ERROR = "error"
 __REPORT_URLS__ = {
