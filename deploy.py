@@ -23,9 +23,6 @@ except:
     warnprint = print
     importantprint = print
 
-# 该版本仅供个人学习调试用，代码质量较差
-# 请进入源出处（Aploium的github）学习参考
-
 __AUTHOR__ = 'Aploium <i@z.codes>'
 __VERSION__ = '0.12.1'
 __ZMIRROR_PROJECT_URL__ = 'https://github.com/douding002/zmirror/'
