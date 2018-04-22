@@ -36,21 +36,21 @@ __REPORT_URLS__ = {
     REPORT_SUCCESS: "https://report.zmirror.org/onekey/log/success",
 }
 
-print("1.linux version")
+print("1.1 check linux version")
 if sys.platform != 'linux':
     errprint('This program can ONLY be used in debian-like Linux (debian, ubuntu and some others)')
     exit(1)
-infoprint("chinese:检查是否是root权限执行:",os.geteuid)
+print("1.2 check root power")
 if os.geteuid() != 0:
     errprint('Root privilege is required for this program. Please use `sudo python3 deploy.py`')
     exit(2)
-infoprint("chinese:检查python版本",sys.version)
+print("1.3 check python version")
 if sys.version_info < (3, 4):
     errprint("zmirror requires at least Python 3.4,\n"
              "however, your Python version is \n", sys.version)
     exit(7)
 
-infoprint("chinese:程序参数赋值",sys.argv)
+print("1.4 get the sys.argv")
 DEBUG = '--debug' in sys.argv
 already_have_cert = '--i-have-cert' in sys.argv
 upgrade_only = "--upgrade-only" in sys.argv
@@ -1170,19 +1170,19 @@ except:
     raise
 
 # 已经安装成功, 移除掉设置文件
-try:
-    os.remove(DUMP_FILE_PATH)
-except:
-    pass
+#try:
+#    os.remove(DUMP_FILE_PATH)
+#except:
+#    pass
 
 infoprint("Finishing...")
-try:
-    onekey_report(report_type=REPORT_SUCCESS)
-except:
-    try:
-        onekey_report(report_type=REPORT_ERROR, traceback_str=traceback.format_exc(), msg="SuccessReportError")
-    except:
-        pass
+#try:
+#    onekey_report(report_type=REPORT_SUCCESS)
+#except:
+#    try:
+#        onekey_report(report_type=REPORT_ERROR, traceback_str=traceback.format_exc(), msg="SuccessReportError")
+#    except:
+#        pass
 
 # ####### 完成 ########
 infoprint("Congratulation!")
