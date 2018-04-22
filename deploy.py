@@ -36,7 +36,7 @@ __REPORT_URLS__ = {
     REPORT_SUCCESS: "https://report.zmirror.org/onekey/log/success",
 }
 
-infoprint("chinese检查是否是linux系统:",sys.platform)
+print("1.linux version")
 if sys.platform != 'linux':
     errprint('This program can ONLY be used in debian-like Linux (debian, ubuntu and some others)')
     exit(1)
