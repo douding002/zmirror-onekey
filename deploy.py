@@ -514,7 +514,6 @@ try:
     #if not (distro.id() == 'ubuntu' and distro.version() == '14.04'):  # 系统不是ubuntu 14.04
         ## Ubuntu 14.04 执行本命令的时候会弹一个postfix的交互, 所以不执行
         #cmd('apt-get -y -q upgrade', allow_failure=True)
-	
 
     cmd("""apt-get -y -q install libapache2-mod-wsgi-py3&& a2enmod wsgi""")
 
@@ -818,7 +817,6 @@ try:
                   "    just as you may have seen in zmirror's demo sites (however, demo sites does not require correct answer)")
         #need_answer_question = input("Do you want to protect your mirror by password? (y/N): ")
         need_answer_question = "y"
-        
         if need_answer_question in ("y", "yes", "Yes", "YES"):
             need_answer_question = True
             print()
