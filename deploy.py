@@ -512,7 +512,7 @@ try:
 
     # (可选) 更新一下各种包
     #if not (distro.id() == 'ubuntu' and distro.version() == '14.04'):  # 系统不是ubuntu 14.04
-        # Ubuntu 14.04 执行本命令的时候会弹一个postfix的交互, 所以不执行
+        ## Ubuntu 14.04 执行本命令的时候会弹一个postfix的交互, 所以不执行
         #cmd('apt-get -y -q upgrade', allow_failure=True)
 	
 
