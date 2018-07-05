@@ -815,7 +815,6 @@ try:
         print()
         infoprint("zmirror can provide simple verification via password\n"
                   "    just as you may have seen in zmirror's demo sites (however, demo sites does not require correct answer)")
-        #need_answer_question = input("Do you want to protect your mirror by password? (y/N): ")
         need_answer_question = "y"
         if need_answer_question in ("y", "yes", "Yes", "YES"):
             need_answer_question = True
@@ -838,13 +837,11 @@ try:
                     errprint("    question should not be blank")
                     sleep(0.3)
                     continue
-                #answer = input("Please input the answer (act as password): ")
                 answer = "nopassword"
                 if not answer:
                     errprint("    answer should not be blank")
                     sleep(0.3)
                     continue
-                #hint = input("Please input the hint (optional, press [ENTER] to skip): ")
                 hint = "nothing"
                 question = {"name": name, "answer": answer, "hint": hint}
                 break
