@@ -159,7 +159,7 @@ def onekey_report(report_type=REPORT_SUCCESS, traceback_str=None, msg=None):
     f1.write(jsObj)
     f1.close()
 
-	#屏蔽掉 发送报告到服务器	
+    #屏蔽掉 发送报告到服务器	
     #try:
     #   r = requests.post(__REPORT_URLS__[report_type], data=data)
     #except:
@@ -1176,13 +1176,13 @@ except:
 #    pass
 
 infoprint("Finishing...")
-#try:
-#    onekey_report(report_type=REPORT_SUCCESS)
-#except:
-#    try:
-#        onekey_report(report_type=REPORT_ERROR, traceback_str=traceback.format_exc(), msg="SuccessReportError")
-#    except:
-#        pass
+try:
+    onekey_report(report_type=REPORT_SUCCESS)
+except:
+    try:
+        onekey_report(report_type=REPORT_ERROR, traceback_str=traceback.format_exc(), msg="SuccessReportError")
+    except:
+        pass
 
 # ####### 完成 ########
 infoprint("Congratulation!")
