@@ -42,6 +42,7 @@ if sys.platform != 'linux':
 if os.geteuid() != 0:
     errprint('Root privilege is required for this program. Please use `sudo python3 deploy.py`')
     exit(2)
+
 if sys.version_info < (3, 4):
     errprint("zmirror requires at least Python 3.4,\n"
              "however, your Python version is \n", sys.version)
