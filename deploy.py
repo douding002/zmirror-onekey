@@ -287,6 +287,7 @@ def dump_settings(dump_file_path=DUMP_FILE_PATH):
 
 try:
     cmd('export LC_ALL=C.UTF-8')  # 设置bash环境为utf-8
+
     cmd('apt-get -y -q update && apt-get -y -q install python3 python3-pip')
 
     # for some old version Linux, pip has bugs, causing:
