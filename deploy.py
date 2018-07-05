@@ -831,7 +831,6 @@ try:
                 "    please see the ##Human/IP verification## section of `config_default.py`\n"
             )
             while True:
-                #name = input("Please input the question: ")
                 name = "long long ago"
                 if not name:
                     errprint("    question should not be blank")
